@@ -1,0 +1,21 @@
+-- 테이블 스페이스 생성
+
+create tablespace TS_JYJ01
+    datafile 'E:\oracle1\data\TS_JYJ_01.dbf' size 1024M
+    autoextend on next 100M maxsize unlimited
+    segment space management auto;
+
+-- 테이블사용할 유저 생성
+
+CREATE USER JYJ
+                  IDENTIFIED BY        JYJ
+                  DEFAULT TABLESPACE   TS_JYJ01
+                  TEMPORARY TABLESPACE TEMP;
+
+
+select * from dba_tablespaces;
+
+
+--유저에게 권한 주기 GRANT {권한#1}, {권한#2} TO HAITEAM;
+
+GRANT CONNECT, RESOURCE, DBA TO JYJ;
